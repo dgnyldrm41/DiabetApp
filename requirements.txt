@@ -18,7 +18,7 @@ contourpy==1.2.1
 
 cycler==0.12.1
 
-fonttools[2024-06-26 08:34:27.514438] ==4.53.0
+fonttools ==4.53.0
 
 joblib==1.4.2
 
