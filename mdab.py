@@ -175,8 +175,7 @@ with col3:
                 death_rate = df2[(df2['Entity'] == country) & (df2['Year'] == year)]['Deaths'].iloc[0]
                 st.write(f"In {country}, in {year} the average death rate due to diabetes is {death_rate:.2f}%.")
     
-        else:
-            st.write(st.session_state['name'], ":green[You don't have Diabetes. You can eat more :)]")
+       
     
     # Model performans metrikleri
     if 'diabetes' in st.session_state:
