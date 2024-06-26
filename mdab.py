@@ -88,7 +88,7 @@ for model_name, model in models.items():
 
 # Web uygulamasını oluşturma
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     st.markdown("<h1 style='text-align: Left; color: green;'>Diabetes Dataset Prediction App</h1>", unsafe_allow_html=True)
@@ -193,7 +193,7 @@ with col3:
         st.write(f'Best Precision=:green[ {best_precision:.2f}]')
 
 
-with col4:
+
     
     # Görsel analizler
     st.header('Visual Analysis')
