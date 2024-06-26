@@ -33,7 +33,7 @@ from imblearn.over_sampling import SMOTE
 df = pd.read_csv("diabetes.csv")
 
 # Eksik değerleri NaN ile değiştirme
-df[['Glucose','BloodPressure','SkinThickness','Insulin','BMI']] = df[['Glucose','BloodPressure','SkinThickness','Insulin','BMI']].replace(0,np.NaN)
+df[['Glucose','BloodPressure','SkinThickness','Insulin','BMI']] = df[['Glucose','BloodPressure','SkinThickness','Insulin','BMI']].replace(0,np.nan)
 
 # Eksik değerleri KNNImputer ile doldurma
 imputer = KNNImputer(n_neighbors=5)
