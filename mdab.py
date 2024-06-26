@@ -155,10 +155,46 @@ with col3:
         else:
             st.write(st.session_state['name'], ":green[You don't have Diabetes. You can eat more :)]")
 
+    df2 = pd.read_csv("death.csv")
+    
+    # Sonuçları gösterme
+    
+    if 'diabetes' in st.session_state:
+        if st.session_state['diabetes']:
+            
+    
+            # Ölüm oranları için seçim yapma
+            country = st.selectbox('Select your country:', df2['Entity'].unique(), key='country')
+            year = st.selectbox('Select year:', df2['Year'].unique(), key='year')
+    
+            if country and year:
+                death_rate = df2[(df2['Entity'] == country) & (df2['Year'] == year)]['Deaths'].iloc[0]
+                st.write(f"In {country}, in {year} the average death rate due to diabetes is {death_rate:.2f}%.")
+    
+        else:
+            st.write(st.session_state['name'], ":green[You don't have Diabetes. You can eat more :)]")
+    
+    # Model performans metrikleri
+    if 'diabetes' in st.session_state:
+        y_pred = best_model.predict(x_test)
+        accuracy = accuracy_score(y_test, y_pred)
+        precision = precision_score(y_test, y_pred)
+        recall = recall_score(y_test, y_pred)
+        f1 = f1_score(y_test, y_pred)
+    
+        st.subheader(':blue[Model Performance Metrics]')
+        st.write(f'Best Model=:green[ {best_model}]')
+        st.write(f'Best Recall=:green[ {best_recall:.2f}]')
+        st.write(f'Best Accuracy=:green[ {best_accuracy:.2f}]')
+        st.write(f'Best F1 Score=:green[ {best_f1:.2f}]')
+        st.write(f'Best Precision=:green[ {best_precision:.2f}]')
+
+
+with col4:
+    
     # Görsel analizler
     st.header('Visual Analysis')
-
-    # Görsel analizlerin devamı
+        
     if 'diabetes' in st.session_state:
         test_result = best_model.predict(user_input)
 
@@ -176,40 +212,3 @@ with col3:
                 plt.title(f'Age vs {feature}')
                 plt.legend()
                 st.pyplot(fig)
-
-# Ölüm oranları verilerini yükleme
-df2 = pd.read_csv("death.csv")
-
-# Sonuçları gösterme
-with col4:
-    if 'diabetes' in st.session_state:
-        if st.session_state['diabetes']:
-            st.write(st.session_state['name'], ":red[You have diabetes. You must eat less :)]")
-
-            # Ölüm oranları için seçim yapma
-            country = st.selectbox('Select your country:', df2['Entity'].unique(), key='country')
-            year = st.selectbox('Select year:', df2['Year'].unique(), key='year')
-
-            if country and year:
-                death_rate = df2[(df2['Entity'] == country) & (df2['Year'] == year)]['Deaths'].iloc[0]
-                st.write(f"In {country}, in {year} the average death rate due to diabetes is {death_rate:.2f}%.")
-
-        else:
-            st.write(st.session_state['name'], ":green[You don't have Diabetes. You can eat more :)]")
-
-    # Model performans metrikleri
-    if 'diabetes' in st.session_state:
-        y_pred = best_model.predict(x_test)
-        accuracy = accuracy_score(y_test, y_pred)
-        precision = precision_score(y_test, y_pred)
-        recall = recall_score(y_test, y_pred)
-        f1 = f1_score(y_test, y_pred)
-
-        st.subheader('Model Performance Metrics')
-        st.write(f'Accuracy: {accuracy:.2f}')
-        st.write(f'Precision: {precision:.2f}')
-        st.write(f'Recall: {recall:.2f}')
-        st.write(f'F1 Score: {f1:.2f}')
-        st.write(f'Best Model: {best_model}')
-        st.write(f'Best Recall: {best_recall:.2f}')
-        st.write(f'Best Accuracy: {best_accuracy:.2f}')
