@@ -72,6 +72,8 @@ models = {
 best_model = None
 best_recall = 0
 best_accuracy = 0
+best_f1 = 0
+best_precision = 0
 
 for model_name, model in models.items():
     model.fit(x_train, y_train)
