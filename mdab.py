@@ -168,8 +168,7 @@ with col3:
                 f1 = f1_score(y_test, y_pred)
                 
                 st.write("Confusion Matrix", confusion_matrix(y_test, y_pred))
-                st.write(tr_split)
-                
+                                
                 st.subheader(':blue[Model Performance Metrics]')
                 st.write(f'Best Model=:green[ {best_model}]')
                 st.write(f'Best Recall=:green[ {best_recall:.2f}]')
@@ -204,8 +203,7 @@ with col3:
                 f1 = f1_score(y_test, y_pred)
 
                 st.write("Confusion Matrix", confusion_matrix(y_test, y_pred))
-                st.write(tr_split)
-                
+                                
                 st.subheader(':blue[Model Performance Metrics]')
                 st.write(f'Best Model=:green[ {best_model}]')
                 st.write(f'Best Recall=:green[ {best_recall:.2f}]')
