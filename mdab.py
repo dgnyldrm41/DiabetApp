@@ -100,11 +100,11 @@ with col2:
     def get_user_input():
         pregnancies = st.number_input("Enter Pregnancies")
         glucose = st.number_input('Enter Glucose  :green[Values : (Normal : 0-140, Diabetes: >140)]')
-        bldp = st.number_input("Enter BloodPresssure  Values : (Low : 0-80, Normal:80-120, Hypertension: >120 )")
-        skin_thickness = st.number_input('Enter Skin Thickness Values: between 0-100 ')
-        insulin = st.number_input('Enter Insulin  Values : (Low : 0-16, Normal:16-166, High: >166 )')
-        BMI = st.number_input('Enter BMI  Values : (Underweight : 0-18.5, Normal:18.5-25, Oberweight:25-30, Obese >30 )')
-        DPF = st.number_input('Enter DPF  Values: between 0-3 ')
+        bldp = st.number_input("Enter BloodPresssure  :green[Values : (Low : 0-80, Normal:80-120, Hypertension: >120 )]")
+        skin_thickness = st.number_input('Enter Skin Thickness :green[Values: between 0-100] ')
+        insulin = st.number_input('Enter Insulin  :green[Values : (Low : 0-16, Normal:16-166, High: >166 )]')
+        BMI = st.number_input('Enter BMI  :green[Values : (Underweight : 0-18.5, Normal:18.5-25, Oberweight:25-30, Obese >30 )]')
+        DPF = st.number_input('Enter DPF  :green[Values: between 0-3 ]')
         age = st.number_input('Enter Age')
 
         user_data = {'Pregnancies': pregnancies,
