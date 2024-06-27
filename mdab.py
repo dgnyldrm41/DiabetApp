@@ -30,7 +30,7 @@ from sklearn.impute import SimpleImputer, KNNImputer
 from imblearn.over_sampling import SMOTE
 
 def wide_space_default():
-st.set_page_config(layout=“wide”)
+st.set_page_config(layout="wide")
 wide_space_default()
 
 # Veri setini yükleme
