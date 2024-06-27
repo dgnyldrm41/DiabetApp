@@ -64,7 +64,7 @@ models = {
     "Decision Tree": DecisionTreeClassifier(),
     "Random Forest": RandomForestClassifier(),
     "Gradient Boosting": GradientBoostingClassifier(),
-    "Extra Trees": ExtraTreesClassifier(),
+    #"Extra Trees": ExtraTreesClassifier(),
     "Naive Bayes": GaussianNB()
 }
 
