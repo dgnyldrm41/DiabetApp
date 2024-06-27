@@ -150,17 +150,11 @@ with col3:
 
         except:
             st.warning("Please fill all the required information.")
-        df2 = pd.read_csv("death.csv") 
+        
         # Tahmin sonucunu gösterme
         if 'diabetes' in st.session_state:
             if st.session_state['diabetes']:
                 st.write(st.session_state['name'], ":red[You have diabetes. You must eat less :)]")
-                country = st.selectbox('Select your country:', df2['Entity'].unique(), key='country')
-                year = st.selectbox('Select year:', df2['Year'].unique(), key='year')
-            
-                if country and year:
-                    death_rate = df2[(df2['Entity'] == country) & (df2['Year'] == year)]['Deaths'].iloc[0]
-                    st.write(f"In {country}, in {year} the average death rate due to diabetes is {death_rate:.2f}%.")
                         
                 y_pred = best_model.predict(x_test)
                 accuracy = accuracy_score(y_test, y_pred)
