@@ -91,7 +91,7 @@ for model_name, model in models.items():
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown("<h1 style='text-align: Left; color: green;'>Diabetes Dataset Prediction App</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: Left; color: blue;'>Diabetes Dataset Prediction App</h1>", unsafe_allow_html=True)
     st.image('data.jpg', caption='Miuul Data Analyst Bootcamp', width=400)
     st.image('group.png', caption='The Veterans', width=400)
 
