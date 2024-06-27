@@ -29,6 +29,10 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.impute import SimpleImputer, KNNImputer
 from imblearn.over_sampling import SMOTE
 
+def wide_space_default():
+st.set_page_config(layout=“wide”)
+wide_space_default()
+
 # Veri setini yükleme
 df = pd.read_csv("diabetes.csv")
 
