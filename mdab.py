@@ -156,73 +156,73 @@ with col3:
             if st.session_state['diabetes']:
                 st.write(st.session_state['name'], ":red[You have diabetes. You must eat less :)]")
                 country = st.selectbox('Select your country:', df2['Entity'].unique(), key='country')
-                    year = st.selectbox('Select year:', df2['Year'].unique(), key='year')
+                year = st.selectbox('Select year:', df2['Year'].unique(), key='year')
             
-                    if country and year:
-                        death_rate = df2[(df2['Entity'] == country) & (df2['Year'] == year)]['Deaths'].iloc[0]
-                        st.write(f"In {country}, in {year} the average death rate due to diabetes is {death_rate:.2f}%.")
+                if country and year:
+                    death_rate = df2[(df2['Entity'] == country) & (df2['Year'] == year)]['Deaths'].iloc[0]
+                    st.write(f"In {country}, in {year} the average death rate due to diabetes is {death_rate:.2f}%.")
                         
-                    y_pred = best_model.predict(x_test)
-                    accuracy = accuracy_score(y_test, y_pred)
-                    precision = precision_score(y_test, y_pred)
-                    recall = recall_score(y_test, y_pred)
-                    f1 = f1_score(y_test, y_pred)
-                    st.subheader(':blue[Model Performance Metrics]')
-                    st.write(f'Best Model=:green[ {best_model}]')
-                    st.write(f'Best Recall=:green[ {best_recall:.2f}]')
-                    st.write(f'Best Accuracy=:green[ {best_accuracy:.2f}]')
-                    st.write(f'Best F1 Score=:green[ {best_f1:.2f}]')
-                    st.write(f'Best Precision=:green[ {best_precision:.2f}]')
+                y_pred = best_model.predict(x_test)
+                accuracy = accuracy_score(y_test, y_pred)
+                precision = precision_score(y_test, y_pred)
+                recall = recall_score(y_test, y_pred)
+                f1 = f1_score(y_test, y_pred)
+                st.subheader(':blue[Model Performance Metrics]')
+                st.write(f'Best Model=:green[ {best_model}]')
+                st.write(f'Best Recall=:green[ {best_recall:.2f}]')
+                st.write(f'Best Accuracy=:green[ {best_accuracy:.2f}]')
+                st.write(f'Best F1 Score=:green[ {best_f1:.2f}]')
+                st.write(f'Best Precision=:green[ {best_precision:.2f}]')
                     
-                    st.header('Visual Analysis')
-                    test_result = best_model.predict(user_input)
+                st.header('Visual Analysis')
+                test_result = best_model.predict(user_input)
         
-                    if test_result == 1:
-                        color = 'red'
-                    else:
-                        color = 'green'
+                if test_result == 1:
+                    color = 'red'
+                else:
+                    color = 'green'
         
-                    # Scatter plotlar ile görsel analiz
-                    for feature in X.columns:
-                        if feature != 'Outcome':
-                            fig = plt.figure()
-                            sns.scatterplot(x='Age', y=feature, hue='Outcome', data=df_selected, palette='coolwarm')
-                            plt.scatter(user_input['Age'], user_input[feature], color=color, s=100, marker='o', label='Your Data')
-                            plt.title(f'Age vs {feature}')
-                            plt.legend()
-                            st.pyplot(fig)
+                # Scatter plotlar ile görsel analiz
+                for feature in X.columns:
+                    if feature != 'Outcome':
+                        fig = plt.figure()
+                        sns.scatterplot(x='Age', y=feature, hue='Outcome', data=df_selected, palette='coolwarm')
+                        plt.scatter(user_input['Age'], user_input[feature], color=color, s=100, marker='o', label='Your Data')
+                        plt.title(f'Age vs {feature}')
+                        plt.legend()
+                        st.pyplot(fig)
     
             else:
                 st.write(st.session_state['name'], ":green[You don't have Diabetes. You can eat more :)]")
                 y_pred = best_model.predict(x_test)
-                    accuracy = accuracy_score(y_test, y_pred)
-                    precision = precision_score(y_test, y_pred)
-                    recall = recall_score(y_test, y_pred)
-                    f1 = f1_score(y_test, y_pred)
-                    st.subheader(':blue[Model Performance Metrics]')
-                    st.write(f'Best Model=:green[ {best_model}]')
-                    st.write(f'Best Recall=:green[ {best_recall:.2f}]')
-                    st.write(f'Best Accuracy=:green[ {best_accuracy:.2f}]')
-                    st.write(f'Best F1 Score=:green[ {best_f1:.2f}]')
-                    st.write(f'Best Precision=:green[ {best_precision:.2f}]')
+                accuracy = accuracy_score(y_test, y_pred)
+                precision = precision_score(y_test, y_pred)
+                recall = recall_score(y_test, y_pred)
+                f1 = f1_score(y_test, y_pred)
+                st.subheader(':blue[Model Performance Metrics]')
+                st.write(f'Best Model=:green[ {best_model}]')
+                st.write(f'Best Recall=:green[ {best_recall:.2f}]')
+                st.write(f'Best Accuracy=:green[ {best_accuracy:.2f}]')
+                st.write(f'Best F1 Score=:green[ {best_f1:.2f}]')
+                st.write(f'Best Precision=:green[ {best_precision:.2f}]')
                     
-                    st.header('Visual Analysis')
-                    test_result = best_model.predict(user_input)
+                st.header('Visual Analysis')
+                test_result = best_model.predict(user_input)
         
-                    if test_result == 1:
-                        color = 'red'
-                    else:
-                        color = 'green'
+                if test_result == 1:
+                    color = 'red'
+                else:
+                    color = 'green'
         
-                    # Scatter plotlar ile görsel analiz
-                    for feature in X.columns:
-                        if feature != 'Outcome':
-                            fig = plt.figure()
-                            sns.scatterplot(x='Age', y=feature, hue='Outcome', data=df_selected, palette='coolwarm')
-                            plt.scatter(user_input['Age'], user_input[feature], color=color, s=100, marker='o', label='Your Data')
-                            plt.title(f'Age vs {feature}')
-                            plt.legend()
-                            st.pyplot(fig)
+                # Scatter plotlar ile görsel analiz
+                for feature in X.columns:
+                    if feature != 'Outcome':
+                        fig = plt.figure()
+                        sns.scatterplot(x='Age', y=feature, hue='Outcome', data=df_selected, palette='coolwarm')
+                        plt.scatter(user_input['Age'], user_input[feature], color=color, s=100, marker='o', label='Your Data')
+                        plt.title(f'Age vs {feature}')
+                        plt.legend()
+                        st.pyplot(fig)
 
     # df2 = pd.read_csv("death.csv")
     
