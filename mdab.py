@@ -99,7 +99,7 @@ with col2:
 
     def get_user_input():
         pregnancies = st.number_input("Enter Pregnancies")
-        glucose = st.number_input('Enter Glucose  : green[Values : (Normal : 0-140, Diabetes: >140)]')
+        glucose = st.number_input('Enter Glucose  :green[Values : (Normal : 0-140, Diabetes: >140)]')
         bldp = st.number_input("Enter BloodPresssure  Values : (Low : 0-80, Normal:80-120, Hypertension: >120 )")
         skin_thickness = st.number_input('Enter Skin Thickness Values: between 0-100 ')
         insulin = st.number_input('Enter Insulin  Values : (Low : 0-16, Normal:16-166, High: >166 )')
